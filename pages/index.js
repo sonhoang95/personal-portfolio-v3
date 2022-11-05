@@ -62,7 +62,7 @@ export default function Home({ data }) {
                                         animate={{ y: 0 }}
                                         transition={{
                                             duration: 1,
-                                            delay: 0.25,
+                                            delay: 0.5,
                                         }}
                                     >
                                         I&apos;m a front-end developer
