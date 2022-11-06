@@ -9,12 +9,12 @@ const menuItems = [
         text: 'Home',
     },
     {
-        url: '/portfolio',
-        text: 'Portfolio',
-    },
-    {
         url: '/about',
         text: 'About',
+    },
+    {
+        url: '/portfolio',
+        text: 'Portfolio',
     },
 ]
 
