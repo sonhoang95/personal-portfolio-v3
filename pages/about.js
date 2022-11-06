@@ -40,7 +40,7 @@ export default function About({ data }) {
                                             delay: 0.1,
                                         }}
                                     >
-                                        {aboutPageData.eyebrow}
+                                        02. {aboutPageData.eyebrow}
                                     </motion.span>
                                 </h1>
                                 <h2 className="h1">

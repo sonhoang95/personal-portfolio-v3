@@ -24,7 +24,7 @@ export default function Home({ data }) {
         <>
             <Header
                 metaTitle="Son Nguyen | Personal Portfolio"
-                metaDescription="Connecting brands with their audience through rich and engaging digital experiences."
+                metaDescription="Connecting brands through rich and engaging digital experiences."
             />
 
             <motion.main exit={{ opacity: 0 }}>
@@ -40,7 +40,7 @@ export default function Home({ data }) {
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 1, delay: 1.5 }}
                                 >
-                                    {homepageData.eyebrow}
+                                    01. {homepageData.eyebrow}
                                 </motion.h1>
 
                                 <h2 className="h1 reveal-text">

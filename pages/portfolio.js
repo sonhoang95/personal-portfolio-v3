@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Header from '../components/header'
 import Tilt from 'react-parallax-tilt'
@@ -38,7 +37,7 @@ export default function Home({ data }) {
                                             delay: 0.1,
                                         }}
                                     >
-                                        Portfolio
+                                        03. Portfolio
                                     </motion.span>
                                 </h1>
 
@@ -78,36 +77,13 @@ export default function Home({ data }) {
                     animate={{ opacity: 1 }}
                     transition={{
                         duration: 2,
-                        delay: 2.5,
+                        delay: 1.75,
                     }}
                 >
                     <div className="wrapper">
                         <div className="row">
                             {data.map((item, i) => (
-                                <div className="item" key={i}>
-                                    <Tilt glareEnable="true">
-                                        <div className="image">
-                                            <Image
-                                                src={`https:${item.image.fields.file.url}`}
-                                                alt={item.title + ' website'}
-                                                placeholder="blur"
-                                                blurDataURL="/images/Progressively-Loading-Images-With-Blur-Effect-min.png"
-                                                layout="fill"
-                                                objectFit="cover"
-                                            />
-                                        </div>
-                                    </Tilt>
-                                    <div className="content">
-                                        <h2 className="title h6">
-                                            {item.title}
-                                        </h2>
-                                        {item.url && (
-                                            <a href={item.url} target="_blank">
-                                                Visit site
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
+                                <PortfolioCard key={i} item={item} />
                             ))}
                         </div>
                     </div>
@@ -116,5 +92,34 @@ export default function Home({ data }) {
 
             <footer></footer>
         </>
+    )
+}
+
+const PortfolioCard = ({ item }) => {
+    return (
+        <div className="item">
+            <a href={item.url} target="_blank">
+                <Tilt glareEnable="true">
+                    <div className="image">
+                        <Image
+                            src={`https:${item.image.fields.file.url}`}
+                            alt={item.title + ' website'}
+                            placeholder="blur"
+                            blurDataURL="/images/Progressively-Loading-Images-With-Blur-Effect-min.png"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
+                </Tilt>
+            </a>
+            <div className="content">
+                <h2 className="title h5">{item.title}</h2>
+                {item.url && (
+                    <a href={item.url} target="_blank">
+                        Visit site
+                    </a>
+                )}
+            </div>
+        </div>
     )
 }

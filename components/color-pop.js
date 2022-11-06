@@ -10,7 +10,7 @@ const ColorPop = (canvas) => {
     var circles = []
 
     var colorPicker = (function () {
-        var colors = ['#023047', '#219ebc', '#fb8500']
+        var colors = ['#023047', '#219ebc', '#fb8500', '#8ecae6', '#ffb703']
         var index = 0
         function next() {
             index = index++ < colors.length - 1 ? index : 0
