@@ -5,7 +5,7 @@ import Canvas from '../components/canvas'
 import { fetchEntries } from '../lib/contentfulEntries'
 
 export async function getStaticProps() {
-    const res = await fetchEntries()
+    const res = await fetchEntries('homepageHeroSection')
     const entries = res.map((entry) => entry.fields)
 
     return {

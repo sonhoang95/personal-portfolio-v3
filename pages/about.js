@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import Header from '../components/header'
-import Link from 'next/link'
 import { fetchEntries } from '../lib/contentfulEntries'
 import md from 'markdown-it'
 
 export async function getStaticProps() {
-    const res = await fetchEntries()
+    const res = await fetchEntries('aboutPageAboutSection')
     const entries = res.map((entry) => entry.fields)
 
     return {
@@ -19,8 +18,6 @@ export default function About({ data }) {
     const aboutPageData = data.find((item) =>
         item.title.includes('About Section - About Page')
     )
-
-    console.log(aboutPageData.techStacks)
 
     return (
         <>
@@ -72,13 +69,21 @@ export default function About({ data }) {
                                         __html: md().render(aboutPageData.body),
                                     }}
                                 />
-                                <ul className="tech-stack-column">
+                                <motion.ul
+                                    className="content tech-stack-column"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{
+                                        duration: 2,
+                                        delay: 1.5,
+                                    }}
+                                >
                                     {aboutPageData.techStacks.map(
                                         (item, index) => (
                                             <li key={index}>{item}</li>
                                         )
                                     )}
-                                </ul>
+                                </motion.ul>
                             </div>
                         </div>
                     </div>
