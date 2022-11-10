@@ -14,7 +14,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function About({ data }) {
+export default function AboutPage({ data }) {
     const aboutPageData = data.find((item) =>
         item.title.includes('About Section - About Page')
     )

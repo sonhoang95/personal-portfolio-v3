@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import Header from '../components/header'
+import Header from '../../components/header'
 import Tilt from 'react-parallax-tilt'
-import { fetchEntries } from '../lib/contentfulEntries'
+import { fetchEntries } from '../../lib/contentfulEntries'
+import Link from 'next/link'
 
 export async function getStaticProps() {
     const res = await fetchEntries('portfolioPagePortfolio')
@@ -15,7 +16,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Home({ data }) {
+export default function PortfolioPage({ data }) {
     return (
         <>
             <Header
@@ -114,9 +115,21 @@ const PortfolioCard = ({ item }) => {
             </a>
             <div className="content">
                 <h2 className="title h5">{item.title}</h2>
-                {item.url && (
-                    <a href={item.url} target="_blank">
-                        Visit site
+                <Link href={`/portfolio/${item.slug}`}>
+                    <a
+                        style={{
+                            borderLeft: '2px solid #f2edda',
+                            borderRight: item.githubUrl
+                                ? '2px solid #f2edda'
+                                : null,
+                        }}
+                    >
+                        View Details
+                    </a>
+                </Link>
+                {item.githubUrl && (
+                    <a href={item.githubUrl} target="_blank">
+                        Github
                     </a>
                 )}
             </div>

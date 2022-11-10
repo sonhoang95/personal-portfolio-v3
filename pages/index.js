@@ -15,7 +15,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Home({ data }) {
+export default function Homepage({ data }) {
     const homepageData = data.find((item) =>
         item.title.includes('Hero Section - Homepage')
     )
